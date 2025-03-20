@@ -7,6 +7,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split  
 from dataclasses import dataclass
 from src.component.data_transformation import dataTransformation,dataTransformationConfig
+from src.component.model_training import ModelTrainer,ModelTrainerConfig
 
 
 @dataclass #it act as init function .we no need to write init function in the class
@@ -31,9 +32,9 @@ class DataIngestion:
       logging.info("Train-Test split initiated")  
       train_data,test_data=train_test_split(df,test_size=0.2,random_state=42)
       
-      df.to_csv(self.Ingestion_config.train_data_path,index=False,header=True)
+      train_data.to_csv(self.Ingestion_config.train_data_path,index=False,header=True)
       
-      df.to_csv(self.Ingestion_config.test_data_path,index=False,header=True)
+      test_data.to_csv(self.Ingestion_config.test_data_path,index=False,header=True)
       
       logging.info("data Ingestion process done")
       
@@ -50,7 +51,11 @@ if __name__=="__main__":
   train_path,test_path=obj.initiate_data_ingestion()
   
   data_transformation=dataTransformation()
-  data_transformation.initiate_data_transformation(train_path,test_path)
+  train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_path,test_path)
+  model_train=ModelTrainer()
+  print(model_train.initiate_model_trainer(train_arr,test_arr))
+  
+  
   
       
       
