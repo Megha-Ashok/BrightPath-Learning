@@ -6,7 +6,7 @@ from src.exception import CustomException
 import dill
 from sklearn.metrics import r2_score
 from sklearn.model_selection import GridSearchCV
-
+from src.logger import logging
 def save_object(file_path,obj):
   try:
     dir_path=os.path.dirname(file_path)
@@ -40,7 +40,7 @@ def evaluate_models(X_train, y_train, X_test, y_test, models, param):
 
             model_list.append(model)
             model_score.append(test_model_score)
-
+            logging.info("hypertuning is  done")
         return model_list, model_score
 
     except Exception as e:
