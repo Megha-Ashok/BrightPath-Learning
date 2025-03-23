@@ -1,0 +1,2 @@
+.ebexetions
+it tell to the elastic binstack for entering the website address.
