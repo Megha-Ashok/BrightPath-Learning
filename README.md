@@ -1,4 +1,4 @@
-# BrightPath-Learning
+<h1 align="center"><b>BrightPath-Learning</b></h1>
 
 ## Project Overview & Motivation.
 In today’s education system, academic progress is often measured only after exams, by which time it's too late for timely intervention. My intuition behind this project was to predict student performance early using various personal and academic features like gender, parental education, lunch type, and test preparation course. This enables proactive support instead of reactive judgment. The specialty of this project lies in its data-driven insight, built using multiple machine learning models and finalized with Linear Regression based on performance metrics. From a societal perspective, this system can be immensely helpful in identifying at-risk students early, providing them with targeted learning resources, and involving parents and teachers for necessary support. It bridges the gap between data and decisions in education, ensuring no student is left behind due to unnoticed academic struggles. In the current scenario — especially post-pandemic, where many students have learning gaps — such a solution becomes even more relevant and impactful
@@ -52,14 +52,13 @@ These predictions help in assessing student performance in core academic areas.
 
 To build the best prediction model, I experimented with a wide range of regression algorithms:
 
-- Linear Regression
+- Linear Regression    
 - Ridge Regression
 - Lasso Regression
 - K-Nearest Neighbors (KNN)
 - Decision Tree Regressor
 - Random Forest Regressor
 - AdaBoost Regressor
-- Support Vector Regressor (SVR)
 - XGBoost Regressor
 
 Each model was evaluated using metrics such as Mean Squared Error (MSE), Mean Absolute Error (MAE), and R² Score through cross-validation to ensure robust comparison. Despite several complex models tested, **Linear Regression emerged as the best balance of interpretability and accuracy**, achieving approximately 88% accuracy on the test data. This result confirms that simpler models can often capture underlying relationships well while maintaining transparency, which is crucial for educational applications.
