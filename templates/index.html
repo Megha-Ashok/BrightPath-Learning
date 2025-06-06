@@ -1,250 +1,147 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BrightPath Learning - Empowering Students</title>
+    <title>BrightPath Learning</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      defer
-      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      .clickable {
-        cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .clickable:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      body {
+        font-family: "Poppins", sans-serif;
       }
     </style>
   </head>
-  <body class="bg-blue-50 text-gray-800 font-sans">
+  <body class="bg-white text-gray-800">
     <!-- Navbar -->
-    <nav
-      class="bg-gradient-to-r from-blue-900 to-indigo-600 text-white shadow-lg sticky top-0 z-50"
-    >
+    <header class="bg-blue-900 text-white shadow-md">
       <div
-        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center flex-wrap"
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
       >
-        <div class="flex items-center gap-3">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
-            alt="Student Logo"
-            class="w-10 h-10"
-          />
-          <h1 class="text-3xl font-extrabold tracking-wide">
-            BrightPath Learning
-          </h1>
-        </div>
-        <ul class="flex items-center gap-6 text-lg flex-wrap mt-2 sm:mt-0">
-          <li>
-            <a href="{{ url_for('index') }}" class="hover:underline">Home</a>
-          </li>
-          <li><a href="#services" class="hover:underline">Features</a></li>
-          {% if session.get('user') %}
-          <li class="font-medium">Welcome, {{ session['user'] }}</li>
-          <li>
-            <a href="#" class="hover:underline">Logout</a>
-          </li>
-          {% else %}
-          <li>
-            <a href="#" class="hover:underline">Login</a>
-          </li>
-          <li>
-            <a href="#" class="hover:underline">Register</a>
-          </li>
-          {% endif %}
-        </ul>
+        <h1 class="text-2xl font-bold">BrightPath Learning</h1>
+        <nav class="space-x-6">
+          <a href="#about" class="hover:text-yellow-400">About</a>
+          <a href="#courses" class="hover:text-yellow-400">Courses</a>
+          <a href="#login" class="hover:text-yellow-400">Login</a>
+          <a href="#register" class="hover:text-yellow-400">Register</a>
+        </nav>
       </div>
-    </nav>
+    </header>
 
-    <!-- Carousel -->
-    <div
-      x-data="{ current: 0, slides: [
-        { image: '/static/students.jpg', text: '📊 Predict Student Performance Using AI' },
-        { image: '/static/online-learning.jpg', text: '🎓 Personalized Learning Resources' },
-        { image: '/static/goal.jpg', text: '🎯 Track Academic Progress & Insights' },
-        { image: '/static/team.jpg', text: '🤝 Connect with Mentors and Peers' }
-      ] }"
-      x-init="setInterval(() => current = (current + 1) % slides.length, 4500)"
-      class="relative w-full h-[70vh] overflow-hidden"
-    >
-      <template x-for="(slide, index) in slides" :key="index">
-        <div
-          x-show="current === index"
-          x-transition:enter="transition-opacity duration-1000"
-          x-transition:leave="transition-opacity duration-1000"
-          class="absolute inset-0"
-        >
-          <img
-            :src="slide.image"
-            class="w-full h-full object-cover brightness-70"
-            alt="Slide Image"
-          />
-          <div
-            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white px-4 text-center"
-          >
-            <h2
-              class="text-3xl md:text-5xl font-extrabold max-w-4xl leading-tight drop-shadow-md"
-              x-text="slide.text"
-            ></h2>
-          </div>
-        </div>
-      </template>
-    </div>
-
-    <!-- About -->
+    <!-- Hero Section -->
     <section
-      class="py-16 px-6 bg-gradient-to-br from-white via-blue-50 to-white"
+      class="h-screen bg-cover bg-center flex items-center justify-center text-center text-white"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1470&q=80');
+      "
     >
-      <div class="max-w-5xl mx-auto text-center">
-        <h2 class="text-4xl font-bold text-blue-800 mb-6">
-          What is BrightPath Learning?
+      <div class="bg-black bg-opacity-60 p-8 rounded-lg">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+          Discover Your Potential
         </h2>
-        <p class="text-lg text-gray-700 leading-relaxed">
-          <strong>BrightPath Learning</strong> is an AI-powered academic support
-          platform that helps predict student performance, provide learning
-          recommendations, and guide them with useful educational tools. Whether
-          you're a student or an educator, BrightPath helps personalize the
-          learning journey and boosts academic success.
+        <p class="text-lg md:text-xl mb-6">
+          Empowering students through smart data insights
+        </p>
+        <a
+          href="#about"
+          class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300"
+          >Learn More</a
+        >
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-6 text-blue-900">About the Project</h2>
+        <p class="text-lg leading-relaxed text-gray-700">
+          BrightPath Learning is a Machine Learning-based platform designed to
+          predict student performance based on diverse academic and personal
+          parameters. Our mission is to support educational institutions in
+          identifying at-risk students early and to empower learners with
+          customized feedback and growth strategies. Future expansions include
+          emotional analysis using NLP and automated career guidance systems.
         </p>
       </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="py-14 px-6 bg-blue-50">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-blue-700 text-center mb-10">
-          Key Features
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <a
-            href="{{url_for('predict_datapoint')}}"
-            class="block bg-white p-6 rounded-xl text-center clickable shadow-md"
+    <!-- Courses / Features Section -->
+    <section id="courses" class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-12 text-blue-900">Core Features</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Card 1 -->
+          <div
+            class="group relative p-6 bg-gradient-to-tr from-blue-600 to-indigo-600 text-white rounded-xl shadow-xl transform transition hover:scale-105"
           >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/1048/1048949.png"
-              alt="Performance Prediction"
-              class="mx-auto w-16 mb-4"
-            />
-            <h3 class="text-xl font-semibold mb-2">
-              📈 Student Performance Prediction
-            </h3>
-            <p class="text-gray-700">
-              Upload academic data and get predicted results using machine
-              learning.
+            <h3 class="text-xl font-semibold mb-2">ML-Based Prediction</h3>
+            <p class="text-sm">
+              Utilizes various algorithms like Linear Regression, Decision Tree,
+              and XGBoost for accurate predictions.
             </p>
-          </a>
-
-          <a
-            href="#"
-            class="block bg-white p-6 rounded-xl text-center clickable shadow-md"
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="group relative p-6 bg-gradient-to-tr from-green-600 to-emerald-500 text-white rounded-xl shadow-xl transform transition hover:scale-105"
           >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3135/3135765.png"
-              alt="Resources"
-              class="mx-auto w-16 mb-4"
-            />
-            <h3 class="text-xl font-semibold mb-2">📚 Study Resources</h3>
-            <p class="text-gray-700">
-              Access curated videos, PDFs, and notes based on your subjects.
+            <h3 class="text-xl font-semibold mb-2">Insightful Dashboard</h3>
+            <p class="text-sm">
+              Graphical representation of student trends, learning gaps, and
+              achievement metrics.
             </p>
-          </a>
-
-          <a
-            href="#"
-            class="block bg-white p-6 rounded-xl text-center clickable shadow-md"
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="group relative p-6 bg-gradient-to-tr from-pink-500 to-red-500 text-white rounded-xl shadow-xl transform transition hover:scale-105"
           >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/609/609803.png"
-              alt="Progress Tracker"
-              class="mx-auto w-16 mb-4"
-            />
-            <h3 class="text-xl font-semibold mb-2">
-              📊 Academic Progress Tracker
-            </h3>
-            <p class="text-gray-700">
-              Visualize progress reports and identify areas to improve.
+            <h3 class="text-xl font-semibold mb-2">Support System</h3>
+            <p class="text-sm">
+              Recommendations for teachers and counselors to provide targeted
+              support.
             </p>
-          </a>
-
-          <a
-            href="#"
-            class="block bg-white p-6 rounded-xl text-center clickable shadow-md"
+          </div>
+          <!-- Card 4 -->
+          <div
+            class="group relative p-6 bg-gradient-to-tr from-purple-600 to-indigo-700 text-white rounded-xl shadow-xl transform transition hover:scale-105"
           >
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png"
-              alt="Mentor Chat"
-              class="mx-auto w-16 mb-4"
-            />
-            <h3 class="text-xl font-semibold mb-2">💬 Mentor & Peer Chat</h3>
-            <p class="text-gray-700">
-              Connect with your batchmates or mentors for academic help.
+            <h3 class="text-xl font-semibold mb-2">Future Scope</h3>
+            <p class="text-sm">
+              Integration with NLP for sentiment analysis and emotional
+              understanding.
             </p>
-          </a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-8 mt-10">
+    <footer class="bg-gray-900 text-white">
       <div
-        class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left"
+        class="bg-cover bg-center py-16 px-6"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1470&q=80');
+        "
       >
-        <div>
-          <h4 class="text-xl font-bold mb-3">Helpful Links</h4>
-          <ul class="space-y-2 text-sm">
-            <li>
-              <a
-                href="https://nptel.ac.in/"
-                target="_blank"
-                class="hover:underline"
-                >🎓 NPTEL Courses</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://khanacademy.org/"
-                target="_blank"
-                class="hover:underline"
-                >📘 Khan Academy</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.geeksforgeeks.org/"
-                target="_blank"
-                class="hover:underline"
-                >👩‍💻 GeeksforGeeks</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold mb-3">Quick Navigation</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#" class="hover:underline">Home</a></li>
-            <li><a href="#services" class="hover:underline">Features</a></li>
-            <li><a href="login.html" class="hover:underline">Login</a></li>
-            <li>
-              <a href="register.html" class="hover:underline">Register</a>
-            </li>
-          </ul>
-        </div>
-        <div class="sm:col-span-2">
-          <h4 class="text-xl font-bold mb-3">About BrightPath</h4>
-          <p class="text-sm leading-relaxed">
-            BrightPath is built to support students and educators in their
-            academic journey. With the help of AI-powered insights, personalized
-            content, and data visualization, we help learners make better
-            decisions for a brighter academic future.
+        <div
+          class="bg-black bg-opacity-60 p-10 rounded-lg max-w-5xl mx-auto text-center"
+        >
+          <h3 class="text-3xl font-bold mb-4">
+            Predict Student Performance and Shape Bright Futures
+          </h3>
+          <p class="mb-4">
+            Join us in transforming education with technology and data-driven
+            insight.
+          </p>
+          <p class="text-sm">
+            Contact: brightpath@edu.com | Phone: +91-98765-43210
           </p>
         </div>
       </div>
-      <div class="text-center text-sm mt-8 text-blue-200">
-        © 2025 BrightPath Learning. All rights reserved.
+      <div class="text-center py-4 bg-gray-800 text-gray-400 text-sm">
+        &copy; 2025 BrightPath Learning. All rights reserved.
       </div>
     </footer>
   </body>
