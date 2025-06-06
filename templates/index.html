@@ -1,1 +1,251 @@
-<h1>Welcome to the home page</h1>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BrightPath Learning - Empowering Students</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <style>
+      .clickable {
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .clickable:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body class="bg-blue-50 text-gray-800 font-sans">
+    <!-- Navbar -->
+    <nav
+      class="bg-gradient-to-r from-blue-900 to-indigo-600 text-white shadow-lg sticky top-0 z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center flex-wrap"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
+            alt="Student Logo"
+            class="w-10 h-10"
+          />
+          <h1 class="text-3xl font-extrabold tracking-wide">
+            BrightPath Learning
+          </h1>
+        </div>
+        <ul class="flex items-center gap-6 text-lg flex-wrap mt-2 sm:mt-0">
+          <li>
+            <a href="{{ url_for('index') }}" class="hover:underline">Home</a>
+          </li>
+          <li><a href="#services" class="hover:underline">Features</a></li>
+          {% if session.get('user') %}
+          <li class="font-medium">Welcome, {{ session['user'] }}</li>
+          <li>
+            <a href="#" class="hover:underline">Logout</a>
+          </li>
+          {% else %}
+          <li>
+            <a href="#" class="hover:underline">Login</a>
+          </li>
+          <li>
+            <a href="#" class="hover:underline">Register</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div
+      x-data="{ current: 0, slides: [
+        { image: '/static/students.jpg', text: '📊 Predict Student Performance Using AI' },
+        { image: '/static/online-learning.jpg', text: '🎓 Personalized Learning Resources' },
+        { image: '/static/goal.jpg', text: '🎯 Track Academic Progress & Insights' },
+        { image: '/static/team.jpg', text: '🤝 Connect with Mentors and Peers' }
+      ] }"
+      x-init="setInterval(() => current = (current + 1) % slides.length, 4500)"
+      class="relative w-full h-[70vh] overflow-hidden"
+    >
+      <template x-for="(slide, index) in slides" :key="index">
+        <div
+          x-show="current === index"
+          x-transition:enter="transition-opacity duration-1000"
+          x-transition:leave="transition-opacity duration-1000"
+          class="absolute inset-0"
+        >
+          <img
+            :src="slide.image"
+            class="w-full h-full object-cover brightness-70"
+            alt="Slide Image"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white px-4 text-center"
+          >
+            <h2
+              class="text-3xl md:text-5xl font-extrabold max-w-4xl leading-tight drop-shadow-md"
+              x-text="slide.text"
+            ></h2>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <!-- About -->
+    <section
+      class="py-16 px-6 bg-gradient-to-br from-white via-blue-50 to-white"
+    >
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-blue-800 mb-6">
+          What is BrightPath Learning?
+        </h2>
+        <p class="text-lg text-gray-700 leading-relaxed">
+          <strong>BrightPath Learning</strong> is an AI-powered academic support
+          platform that helps predict student performance, provide learning
+          recommendations, and guide them with useful educational tools. Whether
+          you're a student or an educator, BrightPath helps personalize the
+          learning journey and boosts academic success.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-14 px-6 bg-blue-50">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-blue-700 text-center mb-10">
+          Key Features
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <a
+            href="{{url_for('predict_datapoint')}}"
+            class="block bg-white p-6 rounded-xl text-center clickable shadow-md"
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1048/1048949.png"
+              alt="Performance Prediction"
+              class="mx-auto w-16 mb-4"
+            />
+            <h3 class="text-xl font-semibold mb-2">
+              📈 Student Performance Prediction
+            </h3>
+            <p class="text-gray-700">
+              Upload academic data and get predicted results using machine
+              learning.
+            </p>
+          </a>
+
+          <a
+            href="#"
+            class="block bg-white p-6 rounded-xl text-center clickable shadow-md"
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3135/3135765.png"
+              alt="Resources"
+              class="mx-auto w-16 mb-4"
+            />
+            <h3 class="text-xl font-semibold mb-2">📚 Study Resources</h3>
+            <p class="text-gray-700">
+              Access curated videos, PDFs, and notes based on your subjects.
+            </p>
+          </a>
+
+          <a
+            href="#"
+            class="block bg-white p-6 rounded-xl text-center clickable shadow-md"
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/609/609803.png"
+              alt="Progress Tracker"
+              class="mx-auto w-16 mb-4"
+            />
+            <h3 class="text-xl font-semibold mb-2">
+              📊 Academic Progress Tracker
+            </h3>
+            <p class="text-gray-700">
+              Visualize progress reports and identify areas to improve.
+            </p>
+          </a>
+
+          <a
+            href="#"
+            class="block bg-white p-6 rounded-xl text-center clickable shadow-md"
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png"
+              alt="Mentor Chat"
+              class="mx-auto w-16 mb-4"
+            />
+            <h3 class="text-xl font-semibold mb-2">💬 Mentor & Peer Chat</h3>
+            <p class="text-gray-700">
+              Connect with your batchmates or mentors for academic help.
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8 mt-10">
+      <div
+        class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left"
+      >
+        <div>
+          <h4 class="text-xl font-bold mb-3">Helpful Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a
+                href="https://nptel.ac.in/"
+                target="_blank"
+                class="hover:underline"
+                >🎓 NPTEL Courses</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://khanacademy.org/"
+                target="_blank"
+                class="hover:underline"
+                >📘 Khan Academy</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.geeksforgeeks.org/"
+                target="_blank"
+                class="hover:underline"
+                >👩‍💻 GeeksforGeeks</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold mb-3">Quick Navigation</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:underline">Home</a></li>
+            <li><a href="#services" class="hover:underline">Features</a></li>
+            <li><a href="login.html" class="hover:underline">Login</a></li>
+            <li>
+              <a href="register.html" class="hover:underline">Register</a>
+            </li>
+          </ul>
+        </div>
+        <div class="sm:col-span-2">
+          <h4 class="text-xl font-bold mb-3">About BrightPath</h4>
+          <p class="text-sm leading-relaxed">
+            BrightPath is built to support students and educators in their
+            academic journey. With the help of AI-powered insights, personalized
+            content, and data visualization, we help learners make better
+            decisions for a brighter academic future.
+          </p>
+        </div>
+      </div>
+      <div class="text-center text-sm mt-8 text-blue-200">
+        © 2025 BrightPath Learning. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
