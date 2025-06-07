@@ -9,9 +9,26 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <style>
       body {
         font-family: "Poppins", sans-serif;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 1.2s ease-out forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     </style>
   </head>
@@ -31,27 +48,62 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section
-      class="h-screen bg-cover bg-center flex items-center justify-center text-center text-white"
-      style="
-        background-image: url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1470&q=80');
-      "
-    >
-      <div class="bg-black bg-opacity-60 p-8 rounded-lg">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          Discover Your Potential
-        </h2>
-        <p class="text-lg md:text-xl mb-6">
-          Empowering students through smart data insights
-        </p>
-        <a
-          href="#about"
-          class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300"
-          >Learn More</a
+    <!-- Swiper -->
+    <div class="swiper h-screen">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div
+          class="swiper-slide bg-cover bg-center flex items-center justify-center"
+          style="
+            background-image: url('https://cdn.pixabay.com/photo/2023/01/30/15/36/school-7755985_960_720.jpg');
+          "
         >
+          <div class="bg-white bg-opacity-50 p-10 rounded-lg text-center">
+            <h1 class="text-5xl font-bold mb-4">
+              Your Child's Brighter Future Starts Here
+            </h1>
+            <p class="text-lg">Empowering through education and guidance</p>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div
+          class="swiper-slide bg-cover bg-center flex items-center justify-center"
+          style="
+            background-image: url('https://cdn.pixabay.com/photo/2016/02/19/11/19/school-1209823_1280.jpg');
+          "
+        >
+          <div class="bg-black bg-opacity-50 p-10 rounded-lg text-center">
+            <h1 class="text-5xl font-bold mb-4">
+              Learning Beyond the Classroom
+            </h1>
+            <p class="text-lg">
+              Fostering creativity, innovation, and knowledge
+            </p>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div
+          class="swiper-slide bg-cover bg-center flex items-center justify-center"
+          style="
+            background-image: url('https://cdn.pixabay.com/photo/2017/08/06/11/39/kids-2596160_1280.jpg');
+          "
+        >
+          <div class="bg-black bg-opacity-50 p-10 rounded-lg text-center">
+            <h1 class="text-5xl font-bold mb-4">
+              Together We Build Tomorrow's Leaders
+            </h1>
+            <p class="text-lg">Shaping character and future with care</p>
+          </div>
+        </div>
       </div>
-    </section>
+
+      <!-- Swiper Controls -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
 
     <!-- About Section -->
     <section id="about" class="py-20 bg-gray-50">
@@ -145,4 +197,22 @@
       </div>
     </footer>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".swiper", {
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
 </html>
