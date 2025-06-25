@@ -1,0 +1,8 @@
+[ 2025-06-16 13:52:27,344 ] 97 werkzeug - WARNING -  * Debugger is active!
+[ 2025-06-16 13:52:27,359 ] 97 werkzeug - INFO -  * Debugger PIN: 739-419-454
+[ 2025-06-16 13:52:31,250 ] 97 werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 13:52:31] "GET / HTTP/1.1" 200 -
+[ 2025-06-16 13:52:32,968 ] 97 werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 13:52:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[ 2025-06-16 13:53:55,834 ] 97 werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 13:53:55] "GET /services/login HTTP/1.1" 200 -
+[ 2025-06-16 13:53:56,905 ] 97 werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 13:53:56] "[33mGET /static/login.js HTTP/1.1[0m" 404 -
+[ 2025-06-16 13:53:59,483 ] 97 werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 13:53:59] "GET /services/registration HTTP/1.1" 200 -
+[ 2025-06-16 13:54:01,665 ] 97 werkzeug - INFO - 127.0.0.1 - - [16/Jun/2025 13:54:01] "GET / HTTP/1.1" 200 -

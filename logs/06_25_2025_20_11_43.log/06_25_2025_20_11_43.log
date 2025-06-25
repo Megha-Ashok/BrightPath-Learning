@@ -1,0 +1,16 @@
+[ 2025-06-25 20:11:43,946 ] 97 werkzeug - WARNING -  * Debugger is active!
+[ 2025-06-25 20:11:43,953 ] 97 werkzeug - INFO -  * Debugger PIN: 954-514-652
+[ 2025-06-25 20:14:18,664 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:14:18] "GET /services/login HTTP/1.1" 200 -
+[ 2025-06-25 20:14:19,631 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:14:19] "[33mGET /static/login.js HTTP/1.1[0m" 404 -
+[ 2025-06-25 20:14:20,862 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:14:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[ 2025-06-25 20:14:23,209 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:14:23] "GET / HTTP/1.1" 200 -
+[ 2025-06-25 20:14:55,671 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:14:55] "GET / HTTP/1.1" 200 -
+[ 2025-06-25 20:15:06,577 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:15:06] "GET / HTTP/1.1" 200 -
+[ 2025-06-25 20:15:12,693 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:15:12] "GET /services/login HTTP/1.1" 200 -
+[ 2025-06-25 20:15:12,723 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:15:12] "[33mGET /static/login.js HTTP/1.1[0m" 404 -
+[ 2025-06-25 20:15:17,394 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:15:17] "[35m[1mPOST /get_login HTTP/1.1[0m" 500 -
+[ 2025-06-25 20:15:17,700 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:15:17] "GET /get_login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+[ 2025-06-25 20:15:17,707 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:15:17] "GET /get_login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+[ 2025-06-25 20:15:17,793 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:15:17] "GET /get_login?__debugger__=yes&cmd=resource&f=console.png&s=EyOOqD5NMewI1ByYdP1V HTTP/1.1" 200 -
+[ 2025-06-25 20:15:17,803 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:15:17] "GET /get_login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+[ 2025-06-25 20:15:17,828 ] 97 werkzeug - INFO - 127.0.0.1 - - [25/Jun/2025 20:15:17] "[36mGET /get_login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
